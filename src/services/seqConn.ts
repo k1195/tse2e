@@ -8,3 +8,4 @@ try {
     console.log("Connection failed to PG")
 }
 
+export default sequelize
