@@ -17,7 +17,7 @@ import childProcess from 'child_process';
         await copy('./src/views', './dist/views');
         // Copy production env file
         await copy('./src/pre-start/env/production.env', './dist/pre-start/env/production.env');
-        // Copy back-end files
+      await copy('./src/pre-start/env/development.env', './dist/pre-start/env/development.env');
         await exec('tsc --build tsconfig.prod.json', './')
     } catch (err) {
         logger.err(err);
