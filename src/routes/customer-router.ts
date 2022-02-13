@@ -1,6 +1,7 @@
 
 import Customer from '../models/customer-model'
 import {Request, Response,Router} from 'express';
+import myEmitter from 'src/events/event';
 
 const router = Router(); 
 
@@ -11,6 +12,7 @@ router.post('/add',async function postCustomer(req:Request,res:Response){
             lastName : req.body.lastName,
             Email    : req.body.email,
         })
+       myEmitter.emit('created',req.body.email,req.body.firstName)
        res.status(200).json(data)
     } 
     catch (error) {
